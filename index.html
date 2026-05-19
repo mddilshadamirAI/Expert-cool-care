@@ -1,265 +1,96 @@
-import React, { useRef, useState } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, MeshDistortMaterial, Float, PerspectiveCamera } from '@react-three/drei';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, MapPin, Clock, Wrench, Shield, Zap, Sparkles, Menu, X } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Cool Care | Authorized Hitachi AC Service Center</title>
+    <meta name="description" content="Expert Cool Care offers premium Hitachi AC repair, gas filling, deep cleaning, and installation services in Patna.">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-// 3D Animated Climate Mesh Control Component
-function FloatingACAsset() {
-  const meshRef = useRef();
-  const [hovered, setHovered] = useState(false);
-
-  // Subtle interactive rotation tracking frame-by-frame
-  useFrame((state) => {
-    const t = state.clock.getElapsedTime();
-    meshRef.current.rotation.x = Math.sin(t / 2) * 0.2;
-    meshRef.current.rotation.y = t * 0.5;
-    meshRef.current.rotation.z = Math.cos(t / 3) * 0.1;
-  });
-
-  return (
-    <Float speed={3} rotationIntensity={1.5} floatIntensity={2}>
-      <mesh 
-        ref={meshRef}
-        onPointerOver={() => setHovered(true)}
-        onPointerOut={() => setHovered(false)}
-        scale={hovered ? 1.2 : 1.0}
-      >
-        {/* Core geometric abstract element representing cold airflow patterns */}
-        <boxGeometry args={[2, 2, 2]} />
-        <MeshDistortMaterial
-          color={hovered ? "#38bdf8" : "#1e40af"}
-          attach="material"
-          distort={0.4}
-          speed={4}
-          roughness={0.2}
-          metalness={0.8}
-        />
-      </mesh>
-    </Float>
-  );
-}
-
-export default function App() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // Schema markup data for local service ranking optimization (SEO)
-  const schemaMarkup = {
-    "@context": "https://schema.org",
-    "@type": "HVACBusiness",
-    "name": "Expert Cool Care",
-    "description": "Authorized Hitachi AC Service Center specializing in professional repairs, installation, and maintenance.",
-    "url": "https://mddilshadamirAI.github.io/expert-cool-care/",
-    "telephone": "+917050721086",
-    "priceRange": "₹₹",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Shop Number, Patna Market, Ashok Rajpath",
-      "addressLocality": "Patna",
-      "addressRegion": "Bihar",
-      "postalCode": "800001",
-      "addressCountry": "IN"
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HVACBusiness",
+      "name": "Expert Cool Care",
+      "description": "Authorized Hitachi AC Service Center specializing in professional repairs, installation, and maintenance.",
+      "url": "https://mddilshadamirAI.github.io/expert-cool-care/",
+      "telephone": "+917050721086",
+      "priceRange": "₹₹",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Patna Market, Ashok Rajpath",
+        "addressLocality": "Patna",
+        "addressRegion": "Bihar",
+        "postalCode": "800001",
+        "addressCountry": "IN"
+      }
     }
-  };
+    </script>
+</head>
+<body>
 
-  return (
-    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans selection:bg-sky-500 selection:text-slate-900 overflow-x-hidden">
-      <script type="application/ld+json">
-        {JSON.stringify(schemaMarkup)}
-      </script>
+    <nav>
+        <div class="logo">EXPERT <span>COOL CARE</span></div>
+        <a href="tel:+917050721086" class="btn btn-nav"><i class="fa-solid fa-phone"></i> Call Now</a>
+    </nav>
 
-      {/* Glassmorphic Top Navigation Bar */}
-      <nav className="sticky top-0 z-50 backdrop-blur-md bg-slate-950/70 border-b border-slate-800 px-6 py-4 md:px-12 flex justify-between items-center">
-        <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="text-xl md:text-2xl font-black tracking-wider text-white"
-        >
-          EXPERT <span className="text-sky-400">COOL CARE</span>
-        </motion.div>
+    <header>
+        <div class="badge"><i class="fa-solid fa-star"></i> Authorized Hitachi Specialists</div>
+        <h1>Hitachi AC Sales, <br><span>Service & Repair</span></h1>
+        <p>Your premium local specialists for quick, high-performance climate care solutions. Delivering certified repair, deep jet cleaning, and structural setups directly to your doorstep in Patna.</p>
+        <a href="#contact" class="btn btn-hero">Book Appointment</a>
+    </header>
 
-        {/* Desktop Controls */}
-        <div className="hidden md:flex items-center gap-8">
-          <a href="#services" className="text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">Services</a>
-          <a href="#contact" className="text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">Find Us</a>
-          <motion.a 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="tel:+917050721086" 
-            className="flex items-center gap-2 bg-sky-500 hover:bg-sky-400 text-slate-950 px-5 py-2.5 rounded-xl font-bold transition-all shadow-lg shadow-sky-500/20"
-          >
-            <Phone size={16} /> Call Now
-          </motion.a>
+    <section class="services" id="services">
+        <div class="card">
+            <div class="icon-box"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+            <h3>Precision Repair</h3>
+            <p>Accurate diagnostic tracks and immediate replacement loops using authentic parts for all split & window units.</p>
         </div>
-
-        {/* Mobile Controller Toggle */}
-        <button className="md:hidden text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </nav>
-
-      {/* Mobile Drawer Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="absolute top-16 left-0 w-full bg-slate-900 border-b border-slate-800 p-6 flex flex-col gap-4 z-40 md:hidden"
-          >
-            <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-300 py-2">Services</a>
-            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-300 py-2">Find Us</a>
-            <a href="tel:+917050721086" className="flex items-center justify-center gap-2 bg-sky-500 text-slate-950 py-3 rounded-xl font-bold">
-              <Phone size={18} /> Call Now
-            </a>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Hero Core Section with Viewport Split 3D Canvas */}
-      <header className="max-w-7xl mx-auto px-6 md:px-12 pt-12 pb-24 grid md:grid-cols-2 gap-12 items-center min-h-[calc(100vh-80px)]">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/30 text-sky-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">
-            <Sparkles size={12} /> Authorized Hitachi Specialists
-          </div>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
-            Hitachi AC Sales, <br />
-            <span className="bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">Service & Repair</span>
-          </h1>
-          <p className="text-slate-400 text-lg mb-8 max-w-xl">
-            Premium local service specialists delivering ultra-fast cooling restorations, certified maintenance, deep cleans, and diagnostics right to your doorstep in Patna.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <motion.a 
-              whileHover={{ y: -2 }}
-              href="#contact" 
-              className="bg-gradient-to-r from-sky-500 to-blue-600 text-slate-950 font-bold px-8 py-4 rounded-xl shadow-xl shadow-sky-500/10 hover:shadow-sky-500/20 transition-all"
-            >
-              Book Appointment
-            </motion.a>
-          </div>
-        </motion.div>
-
-        {/* Interactive 3D Canvas Container */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="h-[350px] md:h-[500px] w-full relative bg-gradient-to-b from-slate-900/50 to-transparent rounded-3xl border border-slate-800/40 backdrop-blur-3xl"
-        >
-          <Canvas className="w-full h-full cursor-grab active:cursor-grabbing">
-            <PerspectiveCamera makeDefault position={[0, 0, 5]} />
-            <ambientLight intensity={0.7} />
-            <pointLight position={[10, 10, 10]} intensity={1.5} />
-            <directionalLight position={[-5, 5, 5]} intensity={1} color="#38bdf8" />
-            <FloatingACAsset />
-            <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
-          </Canvas>
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-slate-500 font-medium bg-slate-900/80 px-3 py-1.5 rounded-full border border-slate-800">
-            🖱️ Drag object to interact in 3D
-          </div>
-        </motion.div>
-      </header>
-
-      {/* Grid Services Matrix Section */}
-      <section id="services" className="max-w-7xl mx-auto px-6 md:px-12 py-24 border-t border-slate-900">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Engineering Solutions</h2>
-          <p className="text-slate-400 max-w-xl mx-auto">Engineered accuracy for high efficiency, reliable performance, and pure air quality.</p>
+        <div class="card">
+            <div class="icon-box"><i class="fa-solid fa-soap"></i></div>
+            <h3>Deep Jet Cleaning</h3>
+            <p>Advanced high-pressure hydro-wash sequences engineered to completely sanitize coils and clear toxic blocks.</p>
         </div>
-
-        <div className="grid md:grid-columns grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            { icon: <Wrench className="text-sky-400" size={24} />, title: "Precision Repair & Fix", desc: "Accurate diagnostic runs and certified replacement arrays for window or multi-split system cooling loops." },
-            { icon: <Shield className="text-emerald-400" size={24} />, title: "Deep Jet Cleaning", desc: "High-pressure, chemical-free hydro wash treatments engineered to purify heat coils and filter elements." },
-            { icon: <Zap className="text-amber-400" size={24} />, title: "Refined Gas Refilling", desc: "Comprehensive structural leak evaluations followed by clean eco-refrigerant re-charging back to factory pressures." }
-          ].map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -6, borderColor: 'rgb(56, 189, 248)' }}
-              className="bg-slate-900/40 border border-slate-800/60 p-8 rounded-2xl backdrop-blur-xl transition-all shadow-xl"
-            >
-              <div className="w-12 h-12 bg-slate-950 rounded-xl flex items-center justify-center mb-6 border border-slate-800">
-                {service.icon}
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
-              <p className="text-slate-400 leading-relaxed text-sm">{service.desc}</p>
-            </motion.div>
-          ))}
+        <div class="card">
+            <div class="icon-box"><i class="fa-solid fa-bolt"></i></div>
+            <h3>Refined Gas Refilling</h3>
+            <p>Comprehensive ecosystem leak checkups followed by precision refrigerant re-charging back to standard pressures.</p>
         </div>
-      </section>
+    </section>
 
-      {/* Contact & Map Layout Segment */}
-      <section id="contact" className="max-w-7xl mx-auto px-6 md:px-12 py-24 grid md:grid-cols-2 gap-12 items-center">
-        <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="bg-slate-900/30 border border-slate-900 p-8 md:p-12 rounded-3xl backdrop-blur-xl"
-        >
-          <h2 className="text-3xl font-bold text-white mb-4">Connect Instantly</h2>
-          <p className="text-slate-400 mb-8">Drop inside our local diagnostic center loop or book immediate emergency support trucks directly to your location.</p>
-          
-          <div className="space-y-6">
-            <div className="flex gap-4 items-start">
-              <div className="text-sky-400 mt-1"><MapPin size={20} /></div>
-              <div>
-                <h4 className="font-semibold text-white text-sm">Workshop Station Location</h4>
-                <p className="text-slate-400 text-sm mt-1">Shop Number, Building Name, Near Market Road, Patna, Bihar - 800001</p>
-              </div>
+    <section class="contact-section" id="contact">
+        <div class="contact-info">
+            <h2>Connect Instantly</h2>
+            <p>Drop by our local station center loop or request an emergency maintenance truck directly to your gate.</p>
+            
+            <div class="info-row">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>Patna Market, Ashok Rajpath, Patna, Bihar - 800001</div>
             </div>
-            <div className="flex gap-4 items-start">
-              <div className="text-sky-400 mt-1"><Phone size={20} /></div>
-              <div>
-                <h4 className="font-semibold text-white text-sm">Direct Phone Link</h4>
-                <p className="text-slate-400 text-sm mt-1">+91 7050721086</p>
-              </div>
+            <div class="info-row">
+                <i class="fa-solid fa-phone"></i>
+                <div>+91 7050721086</div>
             </div>
-            <div className="flex gap-4 items-start">
-              <div className="text-sky-400 mt-1"><Clock size={20} /></div>
-              <div>
-                <h4 className="font-semibold text-white text-sm">Operational Windows</h4>
-                <p className="text-slate-400 text-sm mt-1">Mon - Sat: 09:00 AM - 08:00 PM</p>
-              </div>
+            <div class="info-row">
+                <i class="fa-solid fa-clock"></i>
+                <div>Mon - Sat: 09:00 AM - 08:00 PM</div>
             </div>
-          </div>
 
-          <motion.a 
-            whileHover={{ scale: 1.02 }}
-            href="https://maps.google.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="mt-8 block text-center bg-slate-900 border border-slate-800 text-sky-400 font-bold py-3.5 rounded-xl hover:bg-sky-500 hover:text-slate-950 transition-all text-sm"
-          >
-            🗺️ Open Google Maps
-          </motion.a>
-        </motion.div>
-
-        {/* High-Contrast Interactive Map Wrapper */}
-        <div className="h-[450px] rounded-3xl overflow-hidden border border-slate-800 shadow-2xl relative group">
-          <iframe 
-            title="Expert Cool Care Studio Map Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14392.235544720914!2d85.1375645!3d25.6081075!2m3!1f0!2f0!3f0!3m2!1i1024!2i1067!4m5!3s0x39ed58ea7b7e87b7%3A0xa1936b412bf7063a!2sPatna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1716150000000!5m2!1sen!2sin" 
-            className="w-full h-full grayscale contrast-125 invert opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-            allowFullScreen="" 
-            loading="lazy" 
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+            <a href="https://maps.google.com" target="_blank" class="btn-maps">Open Google Maps Directions</a>
         </div>
-      </section>
 
-      {/* Structured Minimalist Footer Footer */}
-      <footer className="text-center py-12 border-t border-slate-900 text-xs text-slate-600 tracking-wider">
-        <p>© 2026 Expert Cool Care. All Rights Reserved. Engineered via React Three Fiber by Dilshad.</p>
-      </footer>
-    </div>
-  );
-}
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14392.235478446214!2d85.13137975!3d25.60295325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed585351e3909d%3A0x633513a830113f89!2sPatna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1716150000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Expert Cool Care. All Rights Reserved. Engineered by Dilshad.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
