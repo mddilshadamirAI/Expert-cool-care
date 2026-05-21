@@ -3,6 +3,7 @@
     --card-glass: rgba(15, 23, 42, 0.45);
     --border-glass: rgba(255, 255, 255, 0.08);
     --accent-sky: #38bdf8;
+    --accent-indigo: #818cf8;
     --text-white: #f8fafc;
     --text-gray: #94a3b8;
 }
@@ -22,6 +23,7 @@ body {
     overflow-x: hidden;
 }
 
+/* 🌐 NAVIGATION BAR */
 nav {
     display: flex;
     justify-content: space-between;
@@ -45,14 +47,35 @@ nav .logo span {
     color: var(--accent-sky);
 }
 
+/* 📱 NEW NAVIGATION LINKS BLOCK */
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--text-gray);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-sky);
+}
+
+/* 🛠️ CORE COMPONENT BUTTON MATRIX */
 .btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     text-decoration: none;
     font-weight: 600;
     border-radius: 12px;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .btn-nav {
@@ -67,10 +90,11 @@ nav .logo span {
     box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
 }
 
+/* 🚀 HERO CONTAINER SYSTEM */
 header {
     text-align: center;
-    padding: 100px 20px;
-    max-width: 800px;
+    padding: 120px 20px 80px 20px;
+    max-width: 850px;
     margin: 0 auto;
 }
 
@@ -92,11 +116,11 @@ header h1 {
     font-size: 54px;
     font-weight: 900;
     line-height: 1.15;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 header h1 span {
-    background: linear-gradient(to right, #38bdf8, #818cf8);
+    background: linear-gradient(to right, var(--accent-sky), var(--accent-indigo));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -108,8 +132,16 @@ header p {
     margin-bottom: 40px;
 }
 
+/* ➕ HERO MULTI-CTA ROW PACKING */
+.hero-cta-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
 .btn-hero {
-    background: linear-gradient(135s, #38bdf8, #2563eb);
+    background: linear-gradient(135deg, var(--accent-sky), #2563eb);
     color: white;
     padding: 16px 36px;
     font-size: 16px;
@@ -121,13 +153,53 @@ header p {
     box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
 }
 
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-glass);
+    color: var(--text-white);
+    padding: 16px 32px;
+    font-size: 16px;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--accent-sky);
+    border-color: var(--accent-sky);
+    transform: translateY(-2px);
+}
+
+/* 🎯 REUSABLE DYNAMIC HEADINGS MATRICES */
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 0 20px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.section-title p {
+    color: var(--text-gray);
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ⚙️ SERVICES GRID LAYOUT */
 .services {
-    padding: 40px 8%;
+    padding: 60px 8%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .card {
@@ -170,6 +242,123 @@ header p {
     line-height: 1.6;
 }
 
+/* 📸 NEW: INTERACTIVE IMAGE GALLERY (Technicians & AC Layout) */
+.gallery-section {
+    padding: 80px 8%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    height: 380px;
+    border: 1px solid var(--border-glass);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(2, 6, 23, 0.95) 20%, rgba(2, 6, 23, 0.4) 60%, transparent);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    transition: all 0.4s ease;
+}
+
+.gallery-overlay h4 {
+    color: var(--accent-sky);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.gallery-overlay p {
+    color: #cbd5e1;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* 💥 GALLERY HOVER INTERACTIONS */
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-item:hover .gallery-overlay {
+    background: linear-gradient(to top, rgba(37, 99, 235, 0.9) 15%, rgba(2, 6, 23, 0.5));
+}
+
+.gallery-item:hover .gallery-overlay h4 {
+    color: var(--text-white);
+}
+
+/* 🛠️ NEW: WHY CHOOSE US METRIC HOVER PODS */
+.why-choose-us {
+    padding: 80px 8%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.feature-box {
+    background: var(--card-glass);
+    backdrop-filter: blur(16px);
+    padding: 40px 30px;
+    border-radius: 24px;
+    border: 1px solid var(--border-glass);
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.feature-box i {
+    font-size: 36px;
+    color: var(--accent-sky);
+    margin-bottom: 24px;
+    display: inline-block;
+}
+
+.feature-box h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.feature-box p {
+    color: var(--text-gray);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.feature-box:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-indigo);
+    box-shadow: 0 15px 35px rgba(129, 140, 248, 0.15);
+}
+
+/* 📞 CONTACT & FOOTPRINT SECTION */
 .contact-section {
     padding: 80px 8%;
     max-width: 1200px;
@@ -205,29 +394,34 @@ header p {
 }
 
 .btn-maps {
-    display: block;
-    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid var(--border-glass);
     color: var(--accent-sky);
-    padding: 14px;
+    padding: 14px 28px;
     border-radius: 12px;
     text-decoration: none;
     font-weight: 600;
-    margin-top: 40px;
+    margin-top: 20px;
     transition: all 0.3s;
 }
 
 .btn-maps:hover {
     background: var(--accent-sky);
     color: #020617;
+    transform: translateY(-2px);
 }
 
+/* 🗺️ GEOLOCATION WRAPPER LAYER */
 .map-container {
     height: 400px;
     border-radius: 24px;
     overflow: hidden;
     border: 1px solid var(--border-glass);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
 iframe {
@@ -237,16 +431,46 @@ iframe {
     filter: invert(90%) hue-rotate(180deg) grayscale(30%);
 }
 
+/* 🏁 FOOTER TERMINAL CORE */
 footer {
     text-align: center;
     padding: 40px;
     color: #475569;
     font-size: 13px;
     border-top: 1px solid rgba(255, 255, 255, 0.03);
+    margin-top: 40px;
+}
+
+/* 📱 RESPONSIVE ADAPTATION INTERFACE */
+@media(max-width: 992px) {
+    .contact-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
 }
 
 @media(max-width: 768px) {
-    header h1 { font-size: 38px; }
-    .contact-section { grid-template-columns: 1fr; gap: 40px; }
-    nav { padding: 15px 5%; }
+    nav {
+        padding: 15px 5%;
+    }
+    .nav-links {
+        display: none; /* Safely hidden for mobile layout performance */
+    }
+    header {
+        padding: 80px 20px 40px 20px;
+    }
+    header h1 {
+        font-size: 38px;
+    }
+    .hero-cta-group {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+    .btn-hero, .btn-secondary {
+        width: 100%;
+    }
+    .section-title h2 {
+        font-size: 28px;
+    }
 }
