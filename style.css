@@ -242,7 +242,7 @@ header p {
     line-height: 1.6;
 }
 
-/* 📸 NEW: INTERACTIVE IMAGE GALLERY (Technicians & AC Layout) */
+/* 📸 UPDATED: INTERACTIVE IMAGE GALLERY (4-Card Optimization) */
 .gallery-section {
     padding: 80px 8%;
     max-width: 1200px;
@@ -251,7 +251,8 @@ header p {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* CHANGER: Changed 300px to 250px so 4 items align perfectly on one row */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
 
@@ -263,6 +264,7 @@ header p {
     border: 1px solid var(--border-glass);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    background: #0f172a; /* Fallback dark background if image fails */
 }
 
 .gallery-item img {
@@ -275,6 +277,7 @@ header p {
 .gallery-overlay {
     position: absolute;
     inset: 0;
+    /* Premium dark blue gradient overlay */
     background: linear-gradient(to top, rgba(2, 6, 23, 0.95) 20%, rgba(2, 6, 23, 0.4) 60%, transparent);
     display: flex;
     flex-direction: column;
@@ -302,12 +305,31 @@ header p {
     transform: scale(1.08);
 }
 
+/* Smooth shift to matching brand Indigo blue on hover */
 .gallery-item:hover .gallery-overlay {
-    background: linear-gradient(to top, rgba(37, 99, 235, 0.9) 15%, rgba(2, 6, 23, 0.5));
+    background: linear-gradient(to top, rgba(37, 99, 235, 0.85) 15%, rgba(2, 6, 23, 0.5));
 }
 
 .gallery-item:hover .gallery-overlay h4 {
     color: var(--text-white);
+}
+
+/* 📱 MOBILE RESPONSIVENESS FIX */
+@media (max-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Force single column on phones */
+        gap: 20px;
+    }
+    .gallery-item {
+        height: 320px; /* Slightly shorter cards for easier mobile scrolling */
+    }
+    /* Always show the colorful state on mobile since touch has no hover */
+    .gallery-overlay {
+        background: linear-gradient(to top, rgba(37, 99, 235, 0.9) 25%, rgba(2, 6, 23, 0.4));
+    }
+    .gallery-overlay h4 {
+        color: var(--text-white);
+    }
 }
 
 /* 🛠️ NEW: WHY CHOOSE US METRIC HOVER PODS */
